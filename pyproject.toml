@@ -1,0 +1,11 @@
+[project]
+name = "vigotech-adk-workshop"
+version = "0.1.0"
+description = "Workshop: Introducción práctica a Google ADK — VigoTech Events Assistant"
+requires-python = ">=3.11"
+dependencies = [
+    "google-adk>=1.0",
+    "pydantic>=2.5",
+    "python-dotenv>=1.0",
+    "requests>=2.31",
+]

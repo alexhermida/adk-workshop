@@ -1,0 +1,5 @@
+# SequentialAgent for structured output in step 03
+
+The plan's NO-list excludes multi-agent systems, but ADK's `output_schema` disables tool calling on the same `LlmAgent` (see the cheatsheet warning). Step 03's goal — return a typed `EventRecommendation` *derived from real VigoTech data* — therefore requires two agents: a fetcher with the tool (writing to `output_key="events"`) and a structurer with `output_schema=EventRecommendation` (reading `{events}` from state), composed by a `SequentialAgent`.
+
+We picked this over (a) a standalone toy `output_schema` example disconnected from the VigoTech narrative, (b) prompt-based JSON parsed client-side without schema enforcement, and (c) using Pydantic only at the tool-return layer. The SequentialAgent path is the canonical ADK pattern for "tool-using agent that returns structured output," and the minimal composition (2 sub-agents) doubles as the on-ramp for the "multi-agent" item in the closing Q&A — turning the plan's apparent contradiction into a teaching feature rather than a bug.
