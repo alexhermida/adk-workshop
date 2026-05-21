@@ -17,12 +17,15 @@ Pre-requisitos en bonus_ollama/README.md.
 from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
 
+from utils.vigotech import get_vigotech_events
+
 root_agent = Agent(
     name="vigotech_events_assistant",
-    model=LiteLlm(model="ollama_chat/gemma4:e2b"),
+    model=LiteLlm(model="ollama_chat/gemma4:e2b", think=False),
     instruction=(
         "Eres un asistente de eventos de la alianza VigoTech en Vigo. "
         "Responde en el mismo idioma que el usuario "
         "(castellano, gallego o inglés). Sé conciso."
     ),
+    tools=[get_vigotech_events],
 )
