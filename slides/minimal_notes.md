@@ -2,24 +2,31 @@
 
 ## Timeline
 
-| Min   | Bloque                              | Lo crítico                                       |
+| Min   | Bloque                              | Descripción                                       |
 |-------|-------------------------------------|--------------------------------------------------|
 | 0-10  | Setup                               | Doors open + ayudar con `uv sync` y `.env`       |
 | 10-15 | Intro                               | "Model + Instructions + Tools = Agent"           |
-| 15-25 | **step1_basic_agent**               | LA REVELACIÓN DE LA ALUCINACIÓN ↓                |
-| 25-45 | **step2_tools**                     | Mismo prompt, ahora con tool. *Aha moment.*      |
+| 15-25 | **step1_basic_agent**               | No tools                |
+| 25-45 | **step2_tools**                     | Mismo prompt, ahora con tool.      |
 | 45-60 | **step3_structured_output**         | SequentialAgent + Pydantic                       |
 | 60-75 | Q&A + Para seguir explorando        | Multi-agent / MCP / Deploy / Evals               |
 
 ## Intro (10-15) — 5 min
 
 - ¿Qué es un agente? **Model + Instructions + Tools.** Tres cosas, nada más.
+
+- ADK
+
+http://adk.dev/
+https://adk.dev/tutorials/coding-with-ai/
+
 - ¿Qué aporta ADK? Una forma idiomática y Python-nativa de juntar esas tres cosas, con runtime (`adk web`), orquestación (`SequentialAgent`...), y conexiones (tools, MCP, deploy).
 - Hoy: construimos un asistente de eventos VigoTech, en tres pasos.
 
 ## Step 1 (15-25) — 10 min
 
 Mostrar `step1_basic_agent/agent.py` (15 líneas).
+
 
 - "Aquí está el agente. Model + Instructions. Cero tools."
 - Lanzar `adk web`, seleccionar `step1_basic_agent`.

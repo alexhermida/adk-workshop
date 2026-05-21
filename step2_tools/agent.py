@@ -8,12 +8,9 @@ Demo: repite "¿Qué eventos de Python hay esta semana en Vigo?".
 Esta vez el agente llama a get_vigotech_events y responde con datos
 de verdad.
 """
-from dotenv import load_dotenv
 from google.adk.agents import Agent
 
 from utils.vigotech import get_vigotech_events
-
-load_dotenv()
 
 root_agent = Agent(
     name="vigotech_events_assistant",

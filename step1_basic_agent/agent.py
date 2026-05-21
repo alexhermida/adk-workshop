@@ -7,10 +7,7 @@ y observa cómo el modelo se inventa eventos plausibles que no existen.
 Ese es el punto: un LLM sin tools es autocompletado elegante.
 En el paso 2 le daremos datos reales.
 """
-from dotenv import load_dotenv
 from google.adk.agents import Agent
-
-load_dotenv()
 
 root_agent = Agent(
     name="vigotech_events_assistant",

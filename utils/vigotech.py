@@ -4,17 +4,14 @@ La fuente (https://vigotech.org/vigotech-generated.json) es un objeto con
 los grupos del alianza VigoTech. Cada grupo activo tiene un `nextEvent`.
 Aquí lo aplanamos a una lista plana de `Event` y filtramos por tema/fecha.
 """
-from __future__ import annotations
-
 from datetime import datetime, timedelta
+from functools import cache
 from typing import Any
 
 import requests
 from pydantic import BaseModel
 
 VIGOTECH_URL = "https://vigotech.org/vigotech-generated.json"
-
-_cache: dict[str, Any] | None = None
 
 
 class Event(BaseModel):
@@ -25,13 +22,11 @@ class Event(BaseModel):
     group: str
 
 
+@cache
 def _fetch() -> dict[str, Any]:
-    global _cache
-    if _cache is None:
-        response = requests.get(VIGOTECH_URL, timeout=10)
-        response.raise_for_status()
-        _cache = response.json()
-    return _cache
+    response = requests.get(VIGOTECH_URL, timeout=10)
+    response.raise_for_status()
+    return response.json()
 
 
 def _normalize(members: dict[str, Any]) -> list[Event]:
@@ -101,7 +96,7 @@ if __name__ == "__main__":
             print(f"    📍 {e.location}")
             print(f"    🔗 {e.url}\n")
         print("Prompts recomendados para el demo:")
-        topics = sorted({e.group.split()[0].lower() for e in events})
-        print(f"  - ¿Qué eventos próximos hay en Vigo?")
-        for t in topics:
-            print(f"  - ¿Hay algún evento de {t}?")
+        groups = sorted({e.group.split()[0] for e in events})
+        print("  - ¿Qué eventos próximos hay en Vigo?")
+        for g in groups:
+            print(f"  - ¿Hay algún evento de {g}?")

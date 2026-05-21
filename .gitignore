@@ -1,3 +1,4 @@
+.adk/
 .env
 .venv/
 __pycache__/
