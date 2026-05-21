@@ -22,7 +22,10 @@ An ADK `LlmAgent` — the unit of `model + instruction + tools`. The workshop's 
 The specific agent built across the three workshop steps. Themed instruction, one tool, multilingual (castellano / gallego / inglés).
 
 **Step**:
-One of three progressive examples (`01_basic_agent`, `02_tools`, `03_structured_output`). Each is its own directory containing an `agent.py` that exports `root_agent` for `adk web`.
+One of three progressive examples (`step1_basic_agent`, `step2_tools`, `step3_structured_output`). Each is its own directory containing an `agent.py` that exports `root_agent` for `adk web`. The three Steps together are the central 75-minute arc — adding a fourth Step is a deliberate change to the **Workshop** shape, not a casual addition.
+
+**Bonus track**:
+An optional example outside the three-Step arc, kept in the repo for **Attendee**s to explore on their own. Two exist: `bonus_mcp/` (tools from an external MCP server — `mcp-server-fetch`) and `bonus_ollama/` (local model swap — Gemma 4 via Ollama). The speaker may demo one live if the schedule allows, but neither is part of the timed agenda. Bonus tracks are *not* Steps — they don't extend the hallucination → tool → structured output arc, they're orthogonal variations on it.
 
 **Tool**:
 A Python function exposed to the agent — here, exactly one: `get_vigotech_events(topic, days_ahead)`.

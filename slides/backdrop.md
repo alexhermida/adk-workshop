@@ -60,9 +60,13 @@ style: |
 <br>
 
 - **Multi-agent** — `ParallelAgent`, `LoopAgent`, delegación
-- **MCP** — `MCPToolset`, tools desde servidores externos
+- **MCP** — `McpToolset`, tools desde servidores externos
 - **Deployment** — `adk deploy agent-engine`, Cloud Run
 - **Evals** — `adk eval` con datasets
+
+<br>
+
+En el repo: `bonus_mcp/` · `bonus_ollama/` — pruébalos en casa
 
 <br>
 

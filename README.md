@@ -33,6 +33,15 @@ Abre la URL que imprime ADK (normalmente <http://localhost:8000>) y selecciona e
 2. **`step2_tools/`** — Añadimos `get_vigotech_events`. El agente decide cuándo llamarla y con qué parámetros. Datos reales.
 3. **`step3_structured_output/`** — `SequentialAgent`: un agente obtiene eventos, otro devuelve una `EventRecommendation` tipada con Pydantic. (Sí, multi-agent, mínimo. Ver [ADR-0001](docs/adr/0001-sequential-agent-for-structured-output.md).)
 
+## Bonus tracks (opcional)
+
+Dos extras para después del taller — fuera del recorrido principal:
+
+- **`bonus_mcp/`** — el agente del paso 2 + una segunda tool (`fetch`) servida por `mcp-server-fetch` en otro proceso vía MCP. Pre-requisito: `uvx` (incluido con `uv`).
+- **`bonus_ollama/`** — el agente del paso 1 corriendo con Gemma 4 local en lugar de Gemini. Pre-requisito: [Ollama](https://ollama.com/download) + `ollama pull gemma4:e2b` (~7.2 GB).
+
+Cada bonus tiene su propio `README.md` con instrucciones.
+
 ## Preguntas para probar
 
 - "¿Qué eventos hay esta semana?"
